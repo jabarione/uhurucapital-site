@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uhuru Capital</title>
+  <link rel="stylesheet" href="style/styles.css">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#flashcards">Flashcards</a></li>
+    <li><a href="#quiz">Quizzes</a></li>
+    <li><a href="#game">Bitcoin Game</a></li>
+    <li><a href="#merch">Merch</a></li>
+    <li><a href="#certificate">Certificate</a></li>
+  </ul>
+</nav>
+
+<!-- Home Section -->
+<section id="home">
+  <h1>Welcome to Uhuru Capital</h1>
+  <p>Financial Freedom Begins With Knowledge</p>
+  <div class="video-container">
+    <a href="#" onclick="document.getElementById('videoModal').style.display='block'">
+      <img src="images/uhuru-capital-logo.png" alt="Play Video" class="logo-button">
+    </a>
+  </div>
+  <div id="videoModal" style="display:none;">
+    <video controls autoplay>
+      <source src="videos/Uhuru_Capital_Financial_Freedom_Through_Knowledge.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<!-- Flashcards Section -->
+<section id="flashcards">
+  <h2>Flashcards: Learn Bitcoin Terms</h2>
+  <div class="card-grid">
+    <!-- 25 Flashcards inserted here via script -->
+  </div>
+</section>
+
+<!-- Quiz Section -->
+<section id="quiz">
+  <h2>Test Your Bitcoin Knowledge</h2>
+  <div id="quiz-content">
+    <!-- Quiz questions dynamically inserted -->
+  </div>
+</section>
+
+<!-- Bitcoin Game Section -->
+<section id="game">
+  <h2>Bitcoin Earning Game</h2>
+  <p>Earn virtual Bitcoin by answering questions correctly!</p>
+  <div id="game-interface">
+    <!-- Game UI and Sound integration -->
+  </div>
+</section>
+
+<!-- Merch Section -->
+<section id="merch">
+  <h2>Uhuru Capital Merch</h2>
+  <p>Support our mission through wearable knowledge.</p>
+  <a href="https://your-merch-store-link.com" target="_blank">Visit the Store</a>
+</section>
+
+<!-- Certificate Section -->
+<section id="certificate">
+  <h2>Uhuru Capital Certificate of Completion</h2>
+  <p>Complete all quizzes and flashcards to earn your certificate.</p>
+  <div id="certificate-content" class="certificate-box">
+    <img src="images/uhuru-capital-logo.png" alt="Uhuru Capital Logo" class="watermark">
+    <div class="certificate-text">
+      <h3>Certificate of Completion</h3>
+      <p>This certifies that</p>
+      <p id="certificate-name">[Your Name Here]</p>
+      <p>has successfully completed the Bitcoin Foundations Program</p>
+      <p>through Uhuru Capital’s educational platform</p>
+      <p>Signed,<br><strong>Uhuru Capital</strong></p>
+    </div>
+  </div>
+  <input type="text" id="nameInput" placeholder="Enter your name">
+  <button onclick="updateCertificateName()">Set Name</button>
+  <button onclick="downloadCertificateAsPDF()">Download Certificate as PDF</button>
+</section>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<script src="script/uhuru-main.js"></script>
+<script>
+function updateCertificateName() {
+  const name = document.getElementById('nameInput').value;
+  document.getElementById('certificate-name').innerText = name;
+}
+function downloadCertificateAsPDF() {
+  const element = document.getElementById('certificate-content');
+  html2pdf().from(element).save('uhuru-certificate.pdf');
+}
+</script>
+
+</body>
+</html>
